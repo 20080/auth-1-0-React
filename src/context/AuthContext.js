@@ -33,7 +33,15 @@ export function  AuthProvider({children}){
         return auth.signInWithEmailAndPassword(email,password)
     }
 
-    const value = {currentUser,signup,login}
+    function logout(){
+        return auth.signOut()
+    }
+
+    function resetPassword(email){
+        return auth.sendPasswordResetEmail(email)
+    }
+
+    const value = {currentUser,signup,login, logout, resetPassword}
     return (
         //.provider is added additionally not suggested by the ide
         <AuthContext.Provider value={value}>
