@@ -35,7 +35,7 @@ export default function ForgetPassword(){
         <>
             <Card>
                 <Card.Body>
-                    <h2 className="text-center mb-4">Log In</h2>
+                    <h2 className="text-center mb-4">Password recovery</h2>
                     {/*{currentUser && currentUser.email}*/}
                     {/*after doing stuff in AuthContext i think context hook need to be learned*/}
                     {/*{currentUser.email}*/}

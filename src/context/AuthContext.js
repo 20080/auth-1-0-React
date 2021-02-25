@@ -14,12 +14,11 @@ export function  AuthProvider({children}){
             //set user after signup
                             //this method returns the method to un subscribe the
                             // means remove the user or do opposite whatever the function is doing
-        const unsubscribe = auth.onAuthStateChanged(user=>{
+        return auth.onAuthStateChanged(user => {
             setCurrentUser(user)
             setLoading(false)
             //order is important here/fuck
         })
-        return unsubscribe
     },[])
 
     //useState hook
@@ -41,7 +40,14 @@ export function  AuthProvider({children}){
         return auth.sendPasswordResetEmail(email)
     }
 
-    const value = {currentUser,signup,login, logout, resetPassword}
+    function updateEmail(email){
+        return currentUser.updateEmail(email)
+    }
+    function updatePassword(password){
+        return currentUser.updatePassword(password)
+    }
+
+    const value = {currentUser,signup,login, logout, resetPassword,updatePassword,updateEmail}
     return (
         //.provider is added additionally not suggested by the ide
         <AuthContext.Provider value={value}>
